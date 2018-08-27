@@ -1,0 +1,24 @@
+{
+  "name": "json-post",
+  "version": "0.0.0",
+  "description": "How to post JSON in NodeJS",
+  "main": "cjs/index.js",
+  "module": "esm/index.js",
+  "scripts": {
+    "build": "npm run cjs && npm run esm",
+    "cjs": "cp index.js cjs/index.js && echo 'module.exports = postJSON;' >> cjs/index.js",
+    "esm": "cp index.js esm/index.js && echo 'export default postJSON;' >> esm/index.js",
+    "test": "node -e 'console.assert(typeof require(\"./\") === typeof Function)'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WebReflection/json-post.git"
+  },
+  "keywords": [],
+  "author": "Andrea Giammarchi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WebReflection/json-post/issues"
+  },
+  "homepage": "https://github.com/WebReflection/json-post#readme"
+}
