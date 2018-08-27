@@ -15,7 +15,7 @@
  * OR OTHER TORTIOUS ACTION, ARISING OUT OF OR IN CONNECTION WITH THE USE OR
  * PERFORMANCE OF THIS SOFTWARE.
  */
-const postJSON = (where, data) => new Promise((resolve, reject) => {
+const postJSON = (where, data, headers) => new Promise((resolve, reject) => {
   const json = JSON.stringify(data);
   const url = require('url').parse(where);
   const request = require(url.protocol.slice(0, -1)).request(
@@ -24,10 +24,10 @@ const postJSON = (where, data) => new Promise((resolve, reject) => {
       port: url.port,
       path: url.path,
       method: 'POST',
-      headers: {
+      headers: Object.assign({
         'content-type': 'application/json',
         'content-length': json.length
-      }
+      }, headers)
     },
     res => {
       res.setEncoding('utf8');

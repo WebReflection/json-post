@@ -10,6 +10,8 @@ const postJSON = require('post-json');
 postJSON(
   'https://whatever:5000/seriously',
   {hello: 'world'}
+  // optionally extra headers as third argument
+  // {...}
 ).then(
   console.info,
   console.error
