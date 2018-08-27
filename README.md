@@ -4,10 +4,10 @@ How to post JSON in NodeJS.
 <sup><sub>You know those simplest things ever not properly documented online? That!</sub></sup>
 
 ```js
-const postJSON = require('post-json');
-// or import postJSON from 'post-json'
+const jsonPOST = require('json-post');
+// or import jsonPOST from 'json-post'
 
-postJSON(
+jsonPOST(
   'https://whatever:5000/seriously',
   {hello: 'world'}
   // optionally extra headers as third argument
