@@ -18,3 +18,7 @@ jsonPOST(
 ```
 
 That's literally it.
+
+#### ... and what about browsers ?
+
+You can use this [MDN fetch example](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch#Supplying_request_options) to post JSON data.
