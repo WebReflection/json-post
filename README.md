@@ -10,8 +10,7 @@ const jsonPOST = require('json-post');
 jsonPOST(
   'https://whatever:5000/seriously',
   {hello: 'world'}
-  // optionally extra headers as third argument
-  // {...}
+  // optionally extra headers {...}
 ).then(
   console.info,
   console.error

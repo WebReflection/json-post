@@ -1,3 +1,4 @@
+'use strict';
 /*!
  * ISC License
  *
@@ -18,8 +19,8 @@
 const postJSON = (where, data, headers) => new Promise((resolve, reject) => {
   const json = JSON.stringify(data);
   const url = require('url').parse(where);
-  const request = require(url.protocol.slice(0, -1)).request(
-    {
+  require(url.protocol.slice(0, -1))
+    .request({
       hostname: url.hostname,
       port: url.port,
       path: url.path,
@@ -30,13 +31,16 @@ const postJSON = (where, data, headers) => new Promise((resolve, reject) => {
       }, headers)
     },
     res => {
-      res.setEncoding('utf8');
       const data = [];
-      res.on('data', chunk => data.push(chunk));
-      res.on('end', () => resolve(data.join('')));
-    }
-  );
-  request.on('error', reject);
-  request.end(json);
+      res
+        .setEncoding('utf8')
+        .on('error', reject)
+        .on('data', chunk => data.push(chunk))
+        .on('end', () => resolve(data.join('')))
+      ;
+    })
+    .on('error', reject)
+    .end(json)
+  ;
 });
 module.exports = postJSON;

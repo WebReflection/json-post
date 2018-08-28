@@ -6,7 +6,7 @@
   "module": "esm/index.js",
   "scripts": {
     "build": "npm run cjs && npm run esm",
-    "cjs": "cp index.js cjs/index.js && echo 'module.exports = postJSON;' >> cjs/index.js",
+    "cjs": "echo \"'use strict';\" > cjs/index.js && cat index.js >> cjs/index.js && echo 'module.exports = postJSON;' >> cjs/index.js",
     "esm": "cp index.js esm/index.js && echo 'export default postJSON;' >> esm/index.js",
     "test": "node -e 'console.assert(typeof require(\"./\") === typeof Function)'"
   },
